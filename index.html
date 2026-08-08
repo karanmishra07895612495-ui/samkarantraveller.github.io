@@ -398,22 +398,25 @@ setInterval(()=>{
 i=(i+1)%photos.length;
 document.querySelector("header").style.backgroundImage=
 `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('${photos[i]}')`;
-    
+
 let title = document.getElementById("heroTitle");
 let text = document.getElementById("heroText");
 
-title.classList.remove("slide-up");
-text.classList.remove("slide-up");
-    
-setTimeout(() => {
-  title.classList.add("slide-up");
-  text.classList.add("slide-up");
-}, 50);
+title.classList.add("slide-up");
+text.classList.add("slide-up");
 
-setTimeout(() => {
-  title.classList.remove("slide-up");
-  text.classList.remove("slide-up");
-}, 650);
+void title.offsetWidth;
+void text.offsetWidth;
+
+title.innerText = titles[i];
+text.innerText = texts[i];
+
+requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+        title.classList.remove("slide-up");
+        text.classList.remove("slide-up");
+    });
+});
 },4000);
 
 </script>
