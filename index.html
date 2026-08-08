@@ -405,14 +405,18 @@ let text = document.getElementById("heroText");
 title.classList.remove("slide-up");
 text.classList.remove("slide-up");
 
-void title.offsetWidth;
-void text.offsetWidth;
-
 title.innerText = titles[i];
 text.innerText = texts[i];
 
-title.classList.add("slide-up");
-text.classList.add("slide-up");
+setTimeout(() => {
+  title.classList.add("slide-up");
+  text.classList.add("slide-up");
+}, 50);
+
+setTimeout(() => {
+  title.classList.remove("slide-up");
+  text.classList.remove("slide-up");
+}, 650);
 },4000);
 
 </script>
