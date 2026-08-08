@@ -370,12 +370,27 @@ let photos=[
 "images/1786128551487.jpg"
 ];
 
+let titles=[
+"Kedarnath Yatra",
+"Rishikesh Adventure",
+"Explore Uttarakhand"
+];
+    
+let texts=[
+"Experience the divine beauty of Kedarnath",
+"Discover the beauty of Rishikesh",
+"Book Your Dream Journey With SamKaranTraveller"
+];
+
 let i=0;
 
 setInterval(()=>{
 i=(i+1)%photos.length;
 document.querySelector("header").style.backgroundImage=
 `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('${photos[i]}')`;
+    
+document.getElementById("heroTitle").innerText=titles[i];
+document.getElementById("heroText").innerText=texts[i];
 },4000);
 
 </script>
