@@ -372,27 +372,30 @@ flex:1 1 220px;
     <p>© 2026 SamKaranTraveller. All Rights Reserved.</p>
 </footer>
     
-<script>
+<script> 
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
-} 
+}
 
-let photos=[
-"images/kedarnath-in-india.jpg",
-"images/P66VIBKZ27UB7T42AYNEPFI3DM.jpg",
-"images/1786128551487.jpg"
+let photos = [
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80",
+    "images/kedarnath-in-india.jpg",
+    "images/P66VIBKZ27UB7T42AYNEPFI3DM.jpg",
+    "images/1786128551487.jpg"
 ];
 
-let titles=[
-"Devparyag Tour",
-"Kedarnath Yatra",
-"Rishikesh Adventure"
+let titles = [
+    "Welcome to SamKaranTraveller",
+    "Devprayag Tour",
+    "Kedarnath Yatra",
+    "Rishikesh Adventure"
 ];
-    
-let texts=[
-"Where the Alaknanda and Bhagirathi rivers meet to form the Ganges.",
-"Experience the divine beauty of Kedarnath",
-"Discover the beauty of Rishikesh"
+
+let texts = [
+    "Your journey to Uttarakhand begins here",
+    "Where the Alaknanda and Bhagirathi rivers meet to form the Ganges.",
+    "Experience the divine beauty of Kedarnath",
+    "Discover the beauty of Rishikesh"
 ];
 
 let i = 0;
@@ -405,15 +408,16 @@ function changeSlide() {
     title.classList.remove("show");
     text.classList.remove("show");
 
+    document.querySelector("header").style.backgroundImage =
+        `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('${photos[i]}')`;
+
     setTimeout(() => {
 
         title.innerText = titles[i];
         text.innerText = texts[i];
 
-        requestAnimationFrame(() => {
-            title.classList.add("show");
-            text.classList.add("show");
-        });
+        title.classList.add("show");
+        text.classList.add("show");
 
     }, 600);
 
@@ -423,15 +427,9 @@ function changeSlide() {
 changeSlide();
 
 setInterval(() => {
-
-    document.querySelector("header").style.backgroundImage =
-    `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('${photos[i]}')`;
-
     changeSlide();
-    
-},4000);
-
-</script>
+}, 4000);
+</script> 
 
 </body>
 </html>
