@@ -214,13 +214,16 @@ box-shadow:0 3px 10px #ccc;
 flex:1 1 220px;
 } 
 #heroTitle,
-#heroText{
-  transition: opacity 0.6s ease, transform 0.6s ease;
+#heroText {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.slide-up{
-  opacity: 0;
-  transform: translateY(20px);
+#heroTitle.show,
+#heroText.show {
+    opacity: 1;
+    transform: translateY(0);
 } 
 
 </style>
@@ -253,8 +256,8 @@ flex:1 1 220px;
 
 <div class="hero">
 
-<h1 id="heroTitle">Explore Uttarakhand</h1>
-<p id="heroText">Book Your Dream Journey With SamKaranTraveller</p> 
+<h1 id="heroTitle"></h1>
+<p id="heroText"></p>  
 
 <a class="btn" href="https://wa.me/917895612495">Book Now</a>
 
@@ -392,31 +395,40 @@ let texts=[
 "Book Your Dream Journey With SamKaranTraveller"
 ];
 
-let i=0;
-
-setInterval(()=>{
-i=(i+1)%photos.length;
-document.querySelector("header").style.backgroundImage=
-`linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('${photos[i]}')`;
+let i = 0;
 
 let title = document.getElementById("heroTitle");
 let text = document.getElementById("heroText");
 
-title.classList.add("slide-up");
-text.classList.add("slide-up");
+function changeSlide() {
 
-void title.offsetWidth;
-void text.offsetWidth;
+    title.classList.remove("show");
+    text.classList.remove("show");
 
-title.innerText = titles[i];
-text.innerText = texts[i];
+    setTimeout(() => {
 
-requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-        title.classList.remove("slide-up");
-        text.classList.remove("slide-up");
-    });
-});
+        title.innerText = titles[i];
+        text.innerText = texts[i];
+
+        requestAnimationFrame(() => {
+            title.classList.add("show");
+            text.classList.add("show");
+        });
+
+    }, 600);
+
+    i = (i + 1) % photos.length;
+}
+
+changeSlide();
+
+setInterval(() => {
+
+    document.querySelector("header").style.backgroundImage =
+    `linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('${photos[i]}')`;
+
+    changeSlide();
+    
 },4000);
 
 </script>
