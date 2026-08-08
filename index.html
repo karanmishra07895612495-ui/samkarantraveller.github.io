@@ -363,7 +363,22 @@ flex:1 1 220px;
 <script>
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
-}
+} 
+<script>
+let photos=[
+"images/kedarnath-in-india.jpg",
+"images/P66VIBKZ27UB7T42AYNEPFI3DM.jpg",
+"images/1786128551487.jpg"
+];
+
+let i=0;
+
+setInterval(()=>{
+i=(i+1)%photos.length;
+document.querySelector("header").style.backgroundImage=
+`linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('${photos[i]}')`;
+},4000);
+
 </script>
 
 </body>
