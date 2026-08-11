@@ -211,11 +211,41 @@ background:#087532;
 /* LONG WEEKEND SECTION */
 
 .long-weekend{
-    background:#eaf6fa;
+    position:relative;
+    background:
+linear-gradient(rgba(255,255,255,0.65),rgba(255,255,255,0.65)),
+url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
     padding:60px 5%;
     overflow:hidden;
 }
+    
+.rain{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
 
+.rain span{
+    position:absolute;
+    top:-20px;
+    width:1px;
+    height:35px;
+    background:rgba(80,120,140,.35);
+    animation:rainFall linear infinite;
+}
+
+@keyframes rainFall{
+    from{
+        transform:translateY(-50px);
+    }
+    to{
+        transform:translateY(100vh);
+    }
+}
+    
 .long-weekend-title{
     text-align:center;
     font-size:38px;
@@ -394,6 +424,21 @@ flex:1 1 220px;
 <!-- LONG WEEKEND SECTION -->
 
 <section class="long-weekend">
+
+<div class="rain">
+    <span style="left:5%;animation-duration:1.2s;"></span>
+    <span style="left:12%;animation-duration:.9s;"></span>
+    <span style="left:20%;animation-duration:1.4s;"></span>
+    <span style="left:28%;animation-duration:1s;"></span>
+    <span style="left:36%;animation-duration:1.3s;"></span>
+    <span style="left:45%;animation-duration:.8s;"></span>
+    <span style="left:54%;animation-duration:1.1s;"></span>
+    <span style="left:63%;animation-duration:1.5s;"></span>
+    <span style="left:72%;animation-duration:.9s;"></span>
+    <span style="left:81%;animation-duration:1.2s;"></span>
+    <span style="left:90%;animation-duration:1s;"></span>
+    <span style="left:97%;animation-duration:1.3s;"></span>
+</div>
 
 <h2 class="long-weekend-title">🌄 LONG WEEKEND</h2>
 
