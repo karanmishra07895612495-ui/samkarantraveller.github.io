@@ -208,6 +208,110 @@ cursor:pointer;
 button:hover{
 background:#087532;
 }
+/* LONG WEEKEND SECTION */
+
+.long-weekend{
+    background:#eaf6fa;
+    padding:60px 5%;
+    overflow:hidden;
+}
+
+.long-weekend-title{
+    text-align:center;
+    font-size:38px;
+    color:#222;
+    margin-bottom:10px;
+}
+
+.long-weekend-subtitle{
+    text-align:center;
+    font-size:17px;
+    margin-bottom:30px;
+    color:#444;
+}
+
+.weekend-slider{
+    display:flex;
+    gap:15px;
+    overflow-x:auto;
+    scroll-behavior:smooth;
+    scrollbar-width:none;
+    padding:10px 5px 20px;
+}
+
+.weekend-slider::-webkit-scrollbar{
+    display:none;
+}
+
+.weekend-card{
+    min-width:180px;
+    background:white;
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
+    flex-shrink:0;
+}
+
+.weekend-card img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+}
+
+.weekend-info{
+    padding:12px;
+}
+
+.weekend-info h3{
+    font-size:19px;
+    margin-bottom:7px;
+}
+
+.weekend-info p{
+    font-size:13px;
+    color:#666;
+    margin-bottom:7px;
+}
+
+.weekend-price{
+    font-weight:bold;
+    color:#0a8f3d;
+}
+
+.view-all{
+    display:block;
+    width:max-content;
+    margin:25px auto 0;
+    background:#0a8f3d;
+    color:white;
+    padding:11px 28px;
+    border-radius:25px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+@media(max-width:768px){
+    .long-weekend{
+        padding:45px 10px;
+    }
+
+    .long-weekend-title{
+        font-size:30px;
+    }
+
+    .long-weekend-subtitle{
+        font-size:15px;
+    }
+
+    .weekend-card{
+        min-width:165px;
+    }
+
+    .weekend-card img{
+        height:135px;
+    }
+} 
 .package-container{
 display:flex;
 gap:15px;
@@ -287,7 +391,69 @@ flex:1 1 220px;
 </div>
 
 </header>
+<!-- LONG WEEKEND SECTION -->
 
+<section class="long-weekend">
+
+<h2 class="long-weekend-title">🌄 LONG WEEKEND</h2>
+
+<p class="long-weekend-subtitle">
+Travel this August & September with expertly planned, unforgettable holidays.
+</p>
+
+<div class="weekend-slider" id="weekendSlider">
+
+<div class="weekend-card">
+<img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=600&q=80">
+<div class="weekend-info">
+<h3>🇳🇵 Nepal</h3>
+<p>4 Departures</p>
+<div class="weekend-price">Starts from ₹79,990</div>
+</div>
+</div>
+
+<div class="weekend-card">
+<img src="https://images.unsplash.com/photo-1558980664-10ea4f1a9b85?auto=format&fit=crop&w=600&q=80">
+<div class="weekend-info">
+<h3>🇧🇹 Bhutan</h3>
+<p>3 Departures</p>
+<div class="weekend-price">Starts from ₹1,06,000</div>
+</div>
+</div>
+
+<div class="weekend-card">
+<img src="https://images.unsplash.com/photo-1533130061792-64b345e4a833?auto=format&fit=crop&w=600&q=80">
+<div class="weekend-info">
+<h3>🇲🇺 Mauritius</h3>
+<p>2 Departures</p>
+<div class="weekend-price">Starts from ₹1,38,205</div>
+</div>
+</div>
+
+<div class="weekend-card">
+<img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80">
+<div class="weekend-info">
+<h3>🌏 Eurasia</h3>
+<p>3 Departures</p>
+<div class="weekend-price">Starts from ₹1,59,310</div>
+</div>
+</div>
+
+<div class="weekend-card">
+<img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=600&q=80">
+<div class="weekend-info">
+<h3>🏔️ Kashmir</h3>
+<p>4 Departures</p>
+<div class="weekend-price">Starts from ₹39,999</div>
+</div>
+</div>
+
+</div>
+
+<a href="#packages" class="view-all">View All</a>
+
+</section> 
+    
 <section id="packages" class="packages">
 
 <h2>Popular Tour Packages</h2>
@@ -394,6 +560,57 @@ flex:1 1 220px;
 </footer>
     
 <script> 
+const weekendSlider = document.getElementById("weekendSlider");
+
+let weekendAutoScroll = setInterval(() => {
+
+    weekendSlider.scrollBy({
+        left: 195,
+        behavior: "smooth"
+    });
+
+    if (
+        weekendSlider.scrollLeft + weekendSlider.clientWidth
+        >= weekendSlider.scrollWidth - 10
+    ) {
+        setTimeout(() => {
+            weekendSlider.scrollTo({
+                left: 0,
+                behavior: "smooth"
+            });
+        }, 800);
+    }
+
+}, 2500);
+
+weekendSlider.addEventListener("touchstart", () => {
+    clearInterval(weekendAutoScroll);
+});
+
+weekendSlider.addEventListener("touchend", () => {
+
+    weekendAutoScroll = setInterval(() => {
+
+        weekendSlider.scrollBy({
+            left: 195,
+            behavior: "smooth"
+        });
+
+        if (
+            weekendSlider.scrollLeft + weekendSlider.clientWidth
+            >= weekendSlider.scrollWidth - 10
+        ) {
+            setTimeout(() => {
+                weekendSlider.scrollTo({
+                    left: 0,
+                    behavior: "smooth"
+                });
+            }, 800);
+        }
+
+    }, 2500);
+
+});
 function toggleMenu() {
     document.getElementById("navLinks").classList.toggle("show");
 }
