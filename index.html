@@ -825,8 +825,146 @@ document.querySelectorAll(".uk-card").forEach(card => {
   }
 
 } 
-</style>
-    
+.trending-holidays {
+    padding: 45px 20px;
+    text-align: center;
+    background: #fff;
+}
+
+.trending-holidays h2 {
+    margin: 0;
+    font-size: 30px;
+    color: #111;
+}
+
+.trending-holidays > p {
+    color: #555;
+    font-size: 17px;
+    margin: 10px 0 30px;
+}
+
+.trending-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.trending-card {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.trending-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.trending-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 15px 15px;
+    color: white;
+    background: linear-gradient(transparent, rgba(0,0,0,.85));
+}
+
+.trending-info h3 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.trending-info p,
+.trending-info strong {
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+.trending-view-all {
+    display: inline-block;
+    margin-top: 25px;
+    background: #087532;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+    .trending-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .trending-card {
+        height: 210px;
+    }
+
+    .trending-info h3 {
+        font-size: 18px;
+    }
+
+    .trending-info p,
+    .trending-info strong {
+        font-size: 11px;
+    }
+}
+</style> 
+<section class="trending-holidays">
+
+    <h2>Trending Group Holidays</h2>
+    <p>Discover amazing destinations with our group tours!</p>
+
+    <div class="trending-container">
+
+        <div class="trending-card">
+            <img src="images/kashmir.jpg">
+            <div class="trending-info">
+                <h3>🏔️ Kashmir</h3>
+                <p>13 Tours &nbsp; | &nbsp; 103 Departures</p>
+                <strong>130842+ Guests Travelled</strong>
+            </div>
+        </div>
+
+        <div class="trending-card">
+            <img src="images/himachal.jpg">
+            <div class="trending-info">
+                <h3>🏔️ Himachal</h3>
+                <p>17 Tours &nbsp; | &nbsp; 120 Departures</p>
+                <strong>218819+ Guests Travelled</strong>
+            </div>
+        </div>
+
+        <div class="trending-card">
+            <img src="images/america.jpg">
+            <div class="trending-info">
+                <h3>🌎 America</h3>
+                <p>12 Tours &nbsp; | &nbsp; 15 Departures</p>
+                <strong>18853+ Guests Travelled</strong>
+            </div>
+        </div>
+
+        <div class="trending-card">
+            <img src="images/dubai.jpg">
+            <div class="trending-info">
+                <h3>🌆 Dubai</h3>
+                <p>8 Tours &nbsp; | &nbsp; 90 Departures</p>
+                <strong>47623+ Guests Travelled</strong>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="#" class="trending-view-all">View All</a>
+
+</section>
+
 <section id="packages" class="packages">
 
 <h2>Popular Tour Packages</h2>
