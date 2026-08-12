@@ -775,8 +775,8 @@ document.querySelectorAll(".uk-card").forEach(card => {
 @media (max-width: 450px) {
 
   .uk-package-container {
-    display: flex;
-    overflow-x: auto;
+    display: grid;
+grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     padding: 5px 10px 15px;
     scroll-snap-type: x mandatory;
