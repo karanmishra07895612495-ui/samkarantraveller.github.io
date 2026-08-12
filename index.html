@@ -774,7 +774,17 @@ document.querySelectorAll(".uk-card").forEach(card => {
 
 @media (max-width: 450px) {
   .uk-package-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 5px 10px 15px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .uk-card {
+    min-width: 280px;
+    flex: 0 0 280px;
+    scroll-snap-align: start;
   }
 }
 </style>
