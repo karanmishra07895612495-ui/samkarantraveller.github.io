@@ -898,12 +898,19 @@ document.querySelectorAll(".uk-card").forEach(card => {
 
 @media (max-width: 700px) {
     .trending-container {
-        grid-template-columns: repeat(1, 1fr);
+        display: flex;
+        overflow-x: auto;
         gap: 10px;
+        padding: 0 10px;
     }
 
     .trending-card {
+        flex: 0 0 80%;
         height: 210px;
+    }
+
+    .trending-container::-webkit-scrollbar {
+        display: none;
     }
 
     .trending-info h3 {
@@ -914,7 +921,7 @@ document.querySelectorAll(".uk-card").forEach(card => {
     .trending-info strong {
         font-size: 11px;
     }
-}
+} 
 </style> 
 <section class="trending-holidays">
 
