@@ -654,14 +654,39 @@ Travel this August & September with expertly planned, unforgettable holidays.
 
   </div>
 </section>
+<script>
+const whatsappNumber = "917895612495";
 
+document.querySelectorAll(".uk-card").forEach(card => {
+
+  const button = card.querySelector("a");
+  const packageName = card.querySelector("h4")?.innerText || "";
+  const duration = card.querySelector("p")?.innerText || "";
+  const price = card.querySelector("strong")?.innerText || "";
+
+  if (button) {
+    const message =
+      `Hello SamKaranTraveller! 👋\n\n` +
+      `I want to book this package:\n\n` +
+      `📍 Package: ${packageName}\n` +
+      `📅 Duration: ${duration}\n` +
+      `💰 Price: ${price}\n\n` +
+      `Please share availability and booking details.`;
+
+    button.href =
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    button.target = "_blank";
+  }
+
+});
+</script>
 <style>
 .uk-packages {
   padding: 45px 20px;
   background: #f5f7fa;
   text-align: center;
 }
-
 .uk-packages h2 {
   margin: 0;
   color: #087532;
