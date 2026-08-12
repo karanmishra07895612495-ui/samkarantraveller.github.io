@@ -772,17 +772,26 @@ document.querySelectorAll(".uk-card").forEach(card => {
   }
 }
 
-@media (max-width: 450px) {
-
+@media (max-width:450px) { 
   .uk-package-container {
     display: grid;
-grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 15px) / 2);
     gap: 15px;
+    overflow-x: auto;
     padding: 5px 10px 15px;
-    scroll-snap-type: x mandatory;
     width: 100%;
     box-sizing: border-box;
   }
+
+  .uk-card {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+}
 
   .uk-card {
     min-width: calc((100vw - 35px) / 2);
