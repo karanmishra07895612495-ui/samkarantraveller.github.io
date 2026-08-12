@@ -1143,6 +1143,84 @@ document.querySelectorAll(".uk-card").forEach(card => {
         height: 390px;
     }
 }
+
+.legacy-section {
+  padding: 55px 20px;
+  text-align: center;
+  background: #fff;
+}
+
+.legacy-section h2 {
+  font-size: 30px;
+  color: #111;
+  margin: 0 0 20px;
+}
+
+.legacy-section > p {
+  font-size: 18px;
+  color: #555;
+  margin: 0 auto 40px;
+}
+
+.legacy-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.legacy-card {
+  text-align: center;
+}
+
+.legacy-icon {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.legacy-card h3 {
+  font-size: 28px;
+  margin: 5px 0 10px;
+  color: #111;
+}
+
+.legacy-card span {
+  font-size: 18px;
+  color: #555;
+}
+
+.legacy-card:last-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+  .legacy-section {
+    padding: 45px 20px;
+  }
+
+  .legacy-section h2 {
+    font-size: 30px;
+  }
+
+  .legacy-section > p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .legacy-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 10px;
+  }
+
+  .legacy-card h3 {
+    font-size: 27px;
+  }
+
+  .legacy-card span {
+    font-size: 18px;
+  }
+}
 </style> 
 <section class="trending-holidays">
 
@@ -1265,8 +1343,48 @@ document.querySelectorAll(".uk-card").forEach(card => {
                 <p>Start From <strong>₹52,990</strong></p>
             </div>
         </div>
-
+        
+</section>
     </div>
+    <section class="legacy-section">
+
+  <h2>Our Legacy of Unforgettable Journeys</h2>
+
+  <p>Trusted by thousands, crafting memories for a lifetime.</p>
+
+  <div class="legacy-container">
+
+    <div class="legacy-card">
+      <div class="legacy-icon">🌟</div>
+      <h3>10,00,000+</h3>
+      <span>Happy Guests</span>
+    </div>
+
+    <div class="legacy-card">
+      <div class="legacy-icon">🤝</div>
+      <h3>42</h3>
+      <span>Years of Experience</span>
+    </div>
+
+    <div class="legacy-card">
+      <div class="legacy-icon">👍</div>
+      <h3>2,00,000+</h3>
+      <span>Tours Completed</span>
+    </div>
+
+    <div class="legacy-card">
+      <div class="legacy-icon">📍</div>
+      <h3>3000+</h3>
+      <span>Tour Destinations</span>
+    </div>
+
+    <div class="legacy-card">
+      <div class="legacy-icon">🚩</div>
+      <h3>400+</h3>
+      <span>Tour Leaders</span>
+    </div>
+
+  </div>
 
 </section> 
 <section id="packages" class="packages">
