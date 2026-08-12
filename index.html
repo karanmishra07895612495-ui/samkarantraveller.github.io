@@ -651,8 +651,9 @@ Travel this August & September with expertly planned, unforgettable holidays.
       <strong>₹24,999</strong>
       <a href="#">Book Now</a>
     </div>
-    <a href="uttarakhand-group-tours.html" class="view-all">View All</a>
+      
   </div>
+    <a href="uttarakhand-group-tours.html" class="view-all">View All</a>
 </section>
 <script>
 const whatsappNumber = "917895612495";
@@ -746,6 +747,7 @@ document.querySelectorAll(".uk-card").forEach(card => {
 }
 .uk-packages .view-all {
     display: block;
+    width: fit-content;
     margin: 30px auto 0;
     background: #ff7a00;
     color: white;
@@ -753,7 +755,9 @@ document.querySelectorAll(".uk-card").forEach(card => {
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-} 
+    grid-column: 1 / -1;
+    justify-self: center;
+}
 .uk-card a:hover {
   background: #e65c00;
 }
