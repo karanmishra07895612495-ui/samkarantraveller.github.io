@@ -1586,25 +1586,31 @@ document.querySelectorAll(".uk-card").forEach(card => {
 }
 
 @media (max-width: 700px) {
+    .main-footer {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: 0;
+        padding: 35px 15px 0;
+        box-sizing: border-box;
+    }
 
     .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px 15px;
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        box-sizing: border-box;
     }
 
-    .main-footer {
-        padding: 35px 15px 0;
+    .footer-box {
+        width: 100%;
+        box-sizing: border-box;
     }
 
-    .footer-box h3 {
-        font-size: 16px;
+    .footer-bottom {
+        width: 100%;
+        box-sizing: border-box;
     }
-
-    .footer-box p,
-    .footer-box a {
-        font-size: 13px;
-    }
-    }
+}
     
 </style> 
 <section class="trending-holidays">
