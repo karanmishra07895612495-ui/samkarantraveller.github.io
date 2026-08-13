@@ -1538,6 +1538,73 @@ document.querySelectorAll(".uk-card").forEach(card => {
     padding: 35px 0;
     box-sizing: border-box;
 }
+    /* Footer */
+.main-footer {
+    background: #243447;
+    color: #fff;
+    padding: 45px 20px 0;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+.footer-box h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-box p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.footer-box a {
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.footer-box a:hover {
+    color: #ff7a00;
+}
+
+.footer-bottom {
+    margin-top: 35px;
+    padding: 18px 0;
+    text-align: center;
+    background: #172331;
+    color: #ddd;
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 15px;
+    }
+
+    .main-footer {
+        padding: 35px 15px 0;
+    }
+
+    .footer-box h3 {
+        font-size: 16px;
+    }
+
+    .footer-box p,
+    .footer-box a {
+        font-size: 13px;
+    }
+    }
     
 </style> 
 <section class="trending-holidays">
@@ -2118,5 +2185,48 @@ setInterval(() => {
 }, 4000);
 </script> 
 
+    <!-- Footer -->
+<footer class="main-footer">
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h3>SamKaranTraveller</h3>
+            <p>Your trusted travel partner for Uttarakhand tours and memorable journeys.</p>
+        </div>
+
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <a href="#home">Home</a>
+            <a href="#packages">Tour Packages</a>
+            <a href="#destinations">Destinations</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Our Tours</h3>
+            <a href="#">Kedarnath Yatra</a>
+            <a href="#">Badrinath Yatra</a>
+            <a href="#">Char Dham Yatra</a>
+            <a href="#">Valley of Flowers</a>
+            <a href="#">Rishikesh Tour</a>
+        </div>
+
+        <div class="footer-box">
+            <h3>Contact Us</h3>
+            <p>📞 +91 917895612495</p>
+            <p>📧 samkarantraveller@gmail.com</p>
+            <p>📍 Uttarakhand, India</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 SamKaranTraveller. All Rights Reserved.
+    </div>
+
+</footer>
+    
 </body>
 </html>
