@@ -1450,6 +1450,91 @@ document.querySelectorAll(".uk-card").forEach(card => {
     }
 }
     
+/* My SamKaranTraveller Story */
+.story-section {
+    background: #2f4f60;
+    padding: 45px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.story-section h2 {
+    font-size: 28px;
+    margin: 0 0 10px;
+}
+
+.story-section > p {
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.story-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.story-card {
+    background: #fff;
+    color: #333;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.story-card h3 {
+    font-size: 16px;
+    margin: 0 0 5px;
+}
+
+.story-rating {
+    color: #f5a623;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.story-card p {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.story-name {
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+.story-button {
+    display: inline-block;
+    background: #ff3333;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+@media (max-width: 700px) {
+    .story-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
+    }
+
+    .story-card {
+        min-width: 280px;
+        flex-shrink: 0;
+    }
+
+    .story-section h2 {
+        font-size: 24px;
+    }
+}
+    
 </style> 
 <section class="trending-holidays">
 
@@ -1766,6 +1851,53 @@ document.querySelectorAll(".uk-card").forEach(card => {
     </div>
             
   </section>
+
+    <section class="story-section">
+
+    <h2>My SamKaranTraveller Story!</h2>
+
+    <p>
+        Customer satisfaction is our major goal.
+        See what our customers are saying about us.
+    </p>
+
+    <div class="story-container">
+
+        <div class="story-card">
+            <h3>Amazing Uttarakhand Experience</h3>
+            <div class="story-rating">★★★★★ (5.0)</div>
+            <p>
+                An amazing travel experience with SamKaranTraveller.
+                Everything was well planned and our journey was truly memorable.
+            </p>
+            <div class="story-name">— Rahul Sharma</div>
+        </div>
+
+        <div class="story-card">
+            <h3>Beautiful Places, Wonderful Trip</h3>
+            <div class="story-rating">★★★★★ (5.0)</div>
+            <p>
+                The trip was perfectly organised. The places were beautiful
+                and the entire journey was comfortable and enjoyable.
+            </p>
+            <div class="story-name">— Priya Verma</div>
+        </div>
+
+        <div class="story-card">
+            <h3>More Than a Tour</h3>
+            <div class="story-rating">★★★★★ (5.0)</div>
+            <p>
+                Excellent service and support throughout the journey.
+                Everything was managed perfectly from start to finish.
+            </p>
+            <div class="story-name">— Amit Singh</div>
+        </div>
+
+    </div>
+
+    <a href="#" class="story-button">See All</a>
+
+    </section>
         
 <section id="packages" class="packages">
 
