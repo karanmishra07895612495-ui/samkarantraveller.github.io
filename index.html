@@ -1322,6 +1322,67 @@ document.querySelectorAll(".uk-card").forEach(card => {
         height: 145px;
     }
 }
+.adventure-section {
+    background: #ed1c24;
+    padding: 20px;
+    margin: 40px auto;
+    max-width: 1000px;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.adventure-section h2 {
+    margin: 0 0 5px;
+    font-size: 28px;
+}
+
+.adventure-section > p {
+    margin: 0 0 15px;
+    font-size: 14px;
+}
+
+.adventure-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.adventure-card {
+    background: #fff;
+    color: #111;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.adventure-card img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.adventure-card h3 {
+    font-size: 14px;
+    margin: 8px 0 5px;
+}
+
+.adventure-card p {
+    font-size: 11px;
+    margin: 0 0 8px;
+}
+
+.adventure-card a {
+    color: #d71920;
+    font-size: 11px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .adventure-container {
+        grid-template-columns: 1fr;
+    }
+} 
 </style> 
 <section class="trending-holidays">
 
@@ -1551,8 +1612,37 @@ document.querySelectorAll(".uk-card").forEach(card => {
     </div>
 
   </div>
+  <section class="adventure-section">
 
-</section> 
+    <h2>Adventure, Your Way</h2>
+    <p>We have a wide range of tour options to meet all your travel needs, ensuring a memorable experience for everyone.</p>
+
+    <div class="adventure-container">
+
+        <div class="adventure-card">
+            <img src="images/group-tours.jpg" alt="All Group Tours">
+            <h3>All Group Tours</h3>
+            <p>Travel together and create lifelong friendships.</p>
+            <a href="#">Explore</a>
+        </div>
+
+        <div class="adventure-card">
+            <img src="images/speciality-tours.jpg" alt="Speciality Tours">
+            <h3>Speciality Tours</h3>
+            <p>Experience our special tours, uniquely created to suit all your preferences.</p>
+            <a href="#">Explore</a>
+        </div>
+
+        <div class="adventure-card">
+            <img src="images/experiences.jpg" alt="Experiences">
+            <h3>Experiences</h3>
+            <p>Be part of an adventurous journey that brings you closer to nature.</p>
+            <a href="#">Explore</a>
+        </div>
+
+    </div>
+  </section>
+        
 <section id="packages" class="packages">
 
 <h2>Popular Tour Packages</h2>
