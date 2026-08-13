@@ -1389,7 +1389,67 @@ document.querySelectorAll(".uk-card").forEach(card => {
         min-width: 250px;
         flex-shrink: 0;
     }
+} 
+
+.why-section {
+    padding: 45px 20px;
+    text-align: center;
+    background: #fff;
 }
+
+.why-section h2 {
+    font-size: 30px;
+    margin: 0 0 8px;
+    color: #111;
+}
+
+.why-section > p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.why-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px 20px;
+}
+
+.why-card {
+    text-align: center;
+}
+
+.why-icon {
+    font-size: 35px;
+    margin-bottom: 8px;
+}
+
+.why-card h3 {
+    font-size: 16px;
+    margin: 5px 0 8px;
+    color: #222;
+}
+
+.why-card p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    .why-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px 15px;
+    }
+
+    .why-section h2 {
+        font-size: 26px;
+    }
+}
+    
 </style> 
 <section class="trending-holidays">
 
@@ -1645,9 +1705,66 @@ document.querySelectorAll(".uk-card").forEach(card => {
             <h3>Experiences</h3>
             <p>Be part of an adventurous journey that brings you closer to nature.</p>
             <a href="#">Explore</a>
+        </div> 
+       </section>
+        
+        <section class="why-section">
+
+    <h2>Why SamKaranTraveller?</h2>
+    <p>Travel with Trust. Travel with SamKaranTraveller.</p>
+
+    <div class="why-container">
+
+        <div class="why-card">
+            <div class="why-icon">🤝</div>
+            <h3>Trusted Travel</h3>
+            <p>Reliable tour planning with comfortable and memorable journeys.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🏔️</div>
+            <h3>Uttarakhand Experts</h3>
+            <p>Explore Uttarakhand with carefully planned routes and experiences.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">👨‍🏫</div>
+            <h3>Expert Tour Leaders</h3>
+            <p>Experienced support throughout your journey for a smooth trip.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">💰</div>
+            <h3>Best Value Packages</h3>
+            <p>Well-planned tour packages at affordable and transparent prices.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">🗺️</div>
+            <h3>Thoughtfully Crafted Itineraries</h3>
+            <p>Every journey is designed to give you more experiences and less hassle.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">👨‍👩‍👧‍👦</div>
+            <h3>Group & Family Tours</h3>
+            <p>Specially planned journeys for families, friends and groups.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">📅</div>
+            <h3>Flexible Tour Options</h3>
+            <p>Choose tours according to your dates, budget and travel preferences.</p>
+        </div>
+
+        <div class="why-card">
+            <div class="why-icon">📍</div>
+            <h3>Beautiful Destinations</h3>
+            <p>Discover breathtaking destinations across Uttarakhand and beyond.</p>
         </div>
 
     </div>
+            
   </section>
         
 <section id="packages" class="packages">
