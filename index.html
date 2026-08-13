@@ -1380,9 +1380,16 @@ document.querySelectorAll(".uk-card").forEach(card => {
 
 @media (max-width: 700px) {
     .adventure-container {
-        grid-template-columns: 1fr;
+        display: flex;
+        overflow-x: auto;
+        gap: 15px;
     }
-} 
+
+    .adventure-card {
+        min-width: 250px;
+        flex-shrink: 0;
+    }
+}
 </style> 
 <section class="trending-holidays">
 
