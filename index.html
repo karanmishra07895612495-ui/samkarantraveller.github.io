@@ -1585,31 +1585,36 @@ document.querySelectorAll(".uk-card").forEach(card => {
     font-size: 13px;
 }
 
-@media (max-width: 700px) {
-    .main-footer {
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        margin-right: 0;
-        padding: 35px 15px 0;
-        box-sizing: border-box;
-    }
+/* ===== MOBILE FOOTER FIX ===== */
+@media (max-width: 768px) {
 
-    .footer-container {
-        width: 100%;
-        grid-template-columns: 1fr;
-        gap: 30px;
-        box-sizing: border-box;
-    }
+  footer {
+    width: 100%;
+    margin: 0;
+    padding: 35px 20px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
 
-    .footer-box {
-        width: 100%;
-        box-sizing: border-box;
-    }
+  footer .footer-container {
+    width: 100%;
+    margin: 0 auto;
+  }
 
-    .footer-bottom {
-        width: 100%;
-        box-sizing: border-box;
-    }
+  footer .footer-column {
+    width: 100%;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  footer .footer-bottom {
+    width: 100%;
+    margin: 0;
+    padding: 20px 10px;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
 }
     
 </style> 
