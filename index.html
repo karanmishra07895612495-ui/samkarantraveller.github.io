@@ -1221,6 +1221,106 @@ document.querySelectorAll(".uk-card").forEach(card => {
     font-size: 18px;
   }
 }
+/* Anywhere to Everywhere - Coming Soon */
+.anywhere-section {
+    padding: 55px 20px;
+    text-align: center;
+    background: #f7f7f7;
+}
+
+.anywhere-section h2 {
+    font-size: 30px;
+    margin: 0;
+    color: #111;
+}
+
+.anywhere-section > p {
+    font-size: 18px;
+    color: #555;
+    margin: 20px 0 35px;
+}
+
+.anywhere-container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.anywhere-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #ddd;
+    opacity: .75;
+}
+
+.anywhere-card img {
+    width: 160px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.anywhere-info {
+    padding: 15px;
+}
+
+.anywhere-info small {
+    color: #777;
+    font-size: 14px;
+}
+
+.anywhere-info h3 {
+    margin: 5px 0;
+    font-size: 22px;
+    color: #111;
+}
+
+.anywhere-info p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.coming-soon {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #e3262e;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+@media (max-width: 700px) {
+    .anywhere-section {
+        padding: 45px 20px;
+    }
+
+    .anywhere-section h2 {
+        font-size: 30px;
+    }
+
+    .anywhere-section > p {
+        font-size: 17px;
+    }
+
+    .anywhere-container {
+        grid-template-columns: 1fr;
+    }
+
+    .anywhere-card img {
+        width: 160px;
+        height: 145px;
+    }
+}
 </style> 
 <section class="trending-holidays">
 
@@ -1344,6 +1444,68 @@ document.querySelectorAll(".uk-card").forEach(card => {
             </div>
         </div>
         
+      <section class="anywhere-section">
+
+    <h2>Anywhere to Everywhere</h2>
+
+    <p>Fly From Your Most Convenient City</p>
+
+    <div class="anywhere-container">
+
+        <div class="anywhere-card">
+            <span class="coming-soon">COMING SOON</span>
+
+            <img src="images/mumbai.jpg">
+
+            <div class="anywhere-info">
+                <small>Tour Packages From</small>
+                <h3>Mumbai</h3>
+                <p><strong>209</strong> tours • <strong>1451</strong> departures</p>
+                <p>Starts from ₹34,990*</p>
+            </div>
+        </div>
+
+        <div class="anywhere-card">
+            <span class="coming-soon">COMING SOON</span>
+
+            <img src="images/pune.jpg">
+
+            <div class="anywhere-info">
+                <small>Tour Packages From</small>
+                <h3>Pune</h3>
+                <p><strong>18</strong> tours • <strong>66</strong> departures</p>
+                <p>Starts from ₹17,990*</p>
+            </div>
+        </div>
+
+        <div class="anywhere-card">
+            <span class="coming-soon">COMING SOON</span>
+
+            <img src="images/bengaluru.jpg">
+
+            <div class="anywhere-info">
+                <small>Tour Packages From</small>
+                <h3>Bengaluru</h3>
+                <p><strong>13</strong> tours • <strong>36</strong> departures</p>
+                <p>Starts from ₹55,990*</p>
+            </div>
+        </div>
+
+        <div class="anywhere-card">
+            <span class="coming-soon">COMING SOON</span>
+
+            <img src="images/ahmedabad.jpg">
+
+            <div class="anywhere-info">
+                <small>Tour Packages From</small>
+                <h3>Ahmedabad</h3>
+                <p><strong>8</strong> tours • <strong>10</strong> departures</p>
+                <p>Starts from ₹67,990*</p>
+            </div>
+        </div>
+
+    </div>
+
 </section>
     </div>
     <section class="legacy-section">
