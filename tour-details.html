@@ -1113,8 +1113,116 @@ updateSummary();
 
 function selectVehicle(index){
 
-    selectedTransport =
-        tour.transport[index];
+    selectedTransport = tour.transport[index];
 
-    document.querySelectorAll(".vehicle")
-        .forEach(vehicle =>
+    document.querySelectorAll(".vehicle").forEach(vehicle => {
+        vehicle.classList.remove("selected");
+    });
+
+    document
+        .getElementById("vehicle-" + index)
+        .classList.add("selected");
+
+    updateSummary();
+}
+
+
+/* =====================================================
+   DATE SELECT
+===================================================== */
+
+function selectDate(element, date){
+
+    document.querySelectorAll(".date-box").forEach(box => {
+        box.classList.remove("active");
+    });
+
+    element.classList.add("active");
+
+    selectedDate = date;
+
+    document.getElementById("selectedDate").textContent =
+        selectedDate;
+
+    updateSummary();
+}
+
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+function updateSummary(){
+
+    const tourPrice = tour.price;
+
+    const transportPrice =
+        selectedTransport ? selectedTransport.price : 0;
+
+    const total =
+        tourPrice + transportPrice;
+
+    document.getElementById("summaryTourPrice").textContent =
+        tourPrice.toLocaleString("en-IN");
+
+    document.getElementById("transportPrice").textContent =
+        transportPrice.toLocaleString("en-IN");
+
+    document.getElementById("totalPrice").textContent =
+        total.toLocaleString("en-IN");
+
+    document.getElementById("selectedDate").textContent =
+        selectedDate;
+}
+
+
+/* =====================================================
+   BOOK NOW
+===================================================== */
+
+function bookNow(){
+
+    const tourPrice = tour.price;
+
+    const transportPrice =
+        selectedTransport ? selectedTransport.price : 0;
+
+    const total =
+        tourPrice + transportPrice;
+
+    const message =
+        `Hello SamKaranTraveller,
+
+I want to book:
+
+Tour: ${tour.title}
+Departure: ${selectedDate}
+Persons: 1
+
+Tour Package: ₹${tourPrice.toLocaleString("en-IN")}
+Transportation: ₹${transportPrice.toLocaleString("en-IN")}
+
+Total: ₹${total.toLocaleString("en-IN")}`;
+
+    const whatsappNumber = "91XXXXXXXXXX";
+
+    const whatsappURL =
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+}
+
+
+/* =====================================================
+   INITIAL UPDATE
+===================================================== */
+
+updateSummary();
+
+</script>
+
+</body>
+</html>
