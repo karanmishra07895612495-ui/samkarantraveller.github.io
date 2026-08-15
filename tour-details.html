@@ -1,1 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Tour Details | SamKaranTraveller</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+    color:#222;
+}
+
+a{
+    text-decoration:none;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:#0A4D68;
+    color:white;
+    padding:18px 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+}
+
+.back-btn{
+    color:white;
+    background:#ff6b00;
+    padding:10px 18px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+    width:92%;
+    max-width:1200px;
+    margin:30px auto;
+}
+
+/* ================= HERO ================= */
+
+.tour-hero{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 15px rgba(0,0,0,.12);
+}
+
+.tour-image{
+    width:100%;
+    height:430px;
+    object-fit:cover;
+    display:block;
+}
+
+.tour-info{
+    padding:25px;
+}
+
+.tour-info h1{
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-bottom:20px;
+}
+
+.meta span{
+    background:#eef3f5;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.price{
+    font-size:30px;
+    font-weight:bold;
+    color:#e53935;
+}
+
+.price small{
+    font-size:14px;
+    color:#555;
+    font-weight:normal;
+}
+
+/* ================= GRID ================= */
+
+.content-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+    margin-top:25px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.card h2{
+    font-size:23px;
+    margin-bottom:20px;
+    border-left:5px solid #ff6b00;
+    padding-left:12px;
+}
+
+/* ================= DATES ================= */
+
+.dates{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.date-box{
+    border:2px solid #ddd;
+    border-radius:8px;
+    padding:15px;
+    min-width:140px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.date-box:hover,
+.date-box.active{
+    border-color:#ff6b00;
+    background:#fff5ed;
+}
+
+.date-box strong{
+    display:block;
+    margin-bottom:5px;
+}
+
+.date-box span{
+    color:#e53935;
+    font-weight:bold;
+}
+
+/* ================= ITINERARY ================= */
+
+.day{
+    border-left:3px solid #0A4D68;
+    padding:0 0 20px 20px;
+    margin-bottom:20px;
+}
+
+.day h3{
+    color:#0A4D68;
+    margin-bottom:8px;
+}
+
+.day p{
+    color:#555;
+    line-height:1.6;
+}
+
+/* ================= TRANSPORT ================= */
+
+.transport-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.vehicle{
+    border:2px solid #ddd;
+    border-radius:12px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.25s;
+    background:white;
+}
+
+.vehicle:hover{
+    transform:translateY(-4px);
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.vehicle.selected{
+    border-color:#ff6b00;
+    box-shadow:0 0 0 3px rgba(255,107,0,.15);
+}
+
+.vehicle img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+}
+
+.vehicle-info{
+    padding:15px;
+}
+
+.vehicle-info h3{
+    margin-bottom:8px;
+}
+
+.capacity{
+    color:#555;
+    margin-bottom:8px;
+}
+
+.vehicle-price{
+    color:#e53935;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.select-btn{
+    display:block;
+    width:100%;
+    margin-top:12px;
+    padding:9px;
+    border:0;
+    background:#0A4D68;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* ================= SUMMARY ================= */
+
+.summary{
+    position:sticky;
+    top:20px;
+}
+
+.summary-row{
+    display:flex;
+    justify-content:space-between;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.summary-total{
+    font-size:24px;
+    font-weight:bold;
+    color:#e53935;
+    margin-top:15px;
+}
+
+.book-btn{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    background:#ed1c24;
+    color:white;
+    border:0;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.book-btn:hover{
+    background:#c9141b;
+}
+
+/* ================= INCLUSION ================= */
+
+.inc-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.inc-grid ul{
+    list-style:none;
+}
+
+.inc-grid li{
+    padding:8px 0;
+}
+
+.included li::before{
+    content:"✓ ";
+    color:green;
+    font-weight:bold;
+}
+
+.excluded li::before{
+    content:"✕ ";
+    color:red;
+    font-weight:bold;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#243447;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+
+footer p{
+    color:#ddd;
+    margin-top:8px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+    .header{
+        padding:15px 4%;
+    }
+
+    .logo{
+        font-size:20px;
+    }
+
+    .container{
+        width:94%;
+        margin:20px auto;
+    }
+
+    .tour-image{
+        height:240px;
+    }
+
+    .tour-info h1{
+        font-size:25px;
+    }
+
+    .content-grid{
+        grid-template-columns:1fr;
+    }
+
+    .transport-grid{
+        grid-template-columns:1fr;
+    }
+
+    .summary{
+        position:static;
+    }
+
+    .inc-grid{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+        SamKaranTraveller
+    </div>
+
+    <a href="index.html" class="back-btn">
+        ← Back
+    </a>
+
+</header>
+
+
+<main class="container">
+
+<!-- ================= TOUR HERO ================= -->
+
+<section class="tour-hero">
+
+    <img id="tourImage"
+         class="tour-image"
+         src=""
+         alt="Tour">
+
+    <div class="tour-info">
+
+        <h1 id="tourTitle">
+            Tour Loading...
+        </h1>
+
+        <div class="meta">
+
+            <span id="tourDuration">
+                Duration
+            </span>
+
+            <span id="tourRoute">
+                Route
+            </span>
+
+            <span>
+                ⭐ 5.0
+            </span>
+
+        </div>
+
+        <div class="price">
+            ₹<span id="tourPrice">0</span>
+            <small> / person</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTENT ================= -->
+
+<div class="content-grid">
+
+
+<!-- ================= LEFT ================= -->
+
+<div>
+
+
+<!-- DEPARTURE DATES -->
+
+<section class="card">
+
+<h2>📅 Select Departure Date</h2>
+
+<div class="dates">
+
+    <div class="date-box active"
+         onclick="selectDate(this,'05 Sep 2026')">
+
+        <strong>05 Sep</strong>
+        <small>2026</small>
+        <span>Available</span>
+
+    </div>
+
+
+    <div class="date-box"
+         onclick="selectDate(this,'12 Sep 2026')">
+
+        <strong>12 Sep</strong>
+        <small>2026</small>
+        <span>Available</span>
+
+    </div>
+
+
+    <div class="date-box"
+         onclick="selectDate(this,'19 Sep 2026')">
+
+        <strong>19 Sep</strong>
+        <small>2026</small>
+        <span>Available</span>
+
+    </div>
+
+
+    <div class="date-box"
+         onclick="selectDate(this,'26 Sep 2026')">
+
+        <strong>26 Sep</strong>
+        <small>2026</small>
+        <span>Available</span>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ITINERARY ================= -->
+
+<section class="card">
+
+<h2>🗺️ Tour Itinerary</h2>
+
+<div id="itinerary"></div>
+
+</section>
+
+
+<!-- ================= TRANSPORTATION ================= -->
+
+<section class="card">
+
+<h2>🚗 Transportation Options</h2>
+
+<p style="margin-bottom:20px;color:#666;">
+Select your preferred vehicle. Transportation price is separate from the tour package.
+</p>
+
+<div class="transport-grid" id="transportGrid"></div>
+
+</section>
+
+
+<!-- ================= INCLUSIONS ================= -->
+
+<section class="card">
+
+<h2>📋 Inclusions & Exclusions</h2>
+
+<div class="inc-grid">
+
+<div class="included">
+
+<h3>Included</h3>
+
+<ul id="included"></ul>
+
+</div>
+
+
+<div class="excluded">
+
+<h3>Not Included</h3>
+
+<ul id="excluded"></ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- ================= RIGHT SUMMARY ================= -->
+
+<aside>
+
+<section class="card summary">
+
+<h2>Booking Summary</h2>
+
+
+<div class="summary-row">
+
+<span>Tour Package</span>
+
+<strong>
+₹<span id="summaryTourPrice">0</span>
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>Persons</span>
+
+<strong>
+<span id="persons">1</span>
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>Transportation</span>
+
+<strong>
+₹<span id="transportPrice">0</span>
+</strong>
+
+</div>
+
+
+<div class="summary-row">
+
+<span>Departure</span>
+
+<strong id="selectedDate">
+05 Sep 2026
+</strong>
+
+</div>
+
+
+<div class="summary-total">
+
+Total: ₹<span id="totalPrice">0</span>
+
+</div>
+
+
+<button class="book-btn"
+        onclick="bookNow()">
+
+Book Now
+
+</button>
+
+
+<p style="text-align:center;margin-top:12px;color:#777;font-size:13px;">
+Transportation price is for the complete vehicle.
+</p>
+
+</section>
+
+</aside>
+
+
+</div>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<strong>
+SamKaranTraveller
+</strong>
+
+<p>
+Your trusted travel partner for Uttarakhand tours and memorable journeys.
+</p>
+
+<p>
+© 2026 SamKaranTraveller. All Rights Reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   TOUR DATABASE
+===================================================== */
+
+const tours = {
+
+    kedarnath: {
+
+        title:"Kedarnath Yatra",
+
+        image:"images/kedarnath.jpg",
+
+        duration:"4 Days / 3 Nights",
+
+        route:"Delhi → Haridwar → Guptkashi → Kedarnath",
+
+        price:12999,
+
+        itinerary:[
+
+            ["Day 1","Delhi → Haridwar → Guptkashi",
+             "Early morning departure from Delhi. Travel through Haridwar and Devprayag. Overnight stay at Guptkashi."],
+
+            ["Day 2","Guptkashi → Sonprayag → Kedarnath",
+             "Transfer to Sonprayag and continue towards Kedarnath. Check-in and temple visit as per schedule."],
+
+            ["Day 3","Kedarnath → Sonprayag → Guptkashi",
+             "Morning Kedarnath Darshan followed by return journey to Guptkashi."],
+
+            ["Day 4","Guptkashi → Delhi",
+             "After breakfast, start return journey to Delhi."]
+        ],
+
+        included:[
+            "Hotel accommodation",
+            "Breakfast & Dinner",
+            "Tour transportation",
+            "Driver allowance",
+            "Parking & toll taxes"
+        ],
+
+        excluded:[
+            "Personal expenses",
+            "Helicopter ticket",
+            "Horse/Pony charges",
+            "Travel insurance"
+        ],
+
+        transport:[
+
+            {
+                name:"Sedan",
+                image:"images/sedan.jpg",
+                persons:4,
+                price:12000
+            },
+
+            {
+                name:"SUV",
+                image:"images/suv.jpg",
+                persons:6,
+                price:16000
+            },
+
+            {
+                name:"Tempo Traveller",
+                image:"images/tempo-traveller.jpg",
+                persons:12,
+                price:24000
+            }
+
+        ]
+
+    },
+
+
+    badrinath: {
+
+        title:"Badrinath Yatra",
+
+        image:"images/badrinath.jpg",
+
+        duration:"3 Days / 2 Nights",
+
+        route:"Delhi → Joshimath → Badrinath",
+
+        price:10999,
+
+        itinerary:[
+
+            ["Day 1","Delhi → Joshimath",
+             "Departure from Delhi and scenic journey towards Joshimath."],
+
+            ["Day 2","Joshimath → Badrinath",
+             "Proceed towards Badrinath. Temple Darshan and local sightseeing."],
+
+            ["Day 3","Badrinath → Delhi",
+             "Morning Darshan followed by return journey to Delhi."]
+        ],
+
+        included:[
+            "Hotel accommodation",
+            "Breakfast & Dinner",
+            "Transportation",
+            "Parking & toll taxes"
+        ],
+
+        excluded:[
+            "Personal expenses",
+            "Travel insurance",
+            "Puja expenses",
+            "Any additional sightseeing"
+        ],
+
+        transport:[
+
+            {
+                name:"Sedan",
+                image:"images/sedan.jpg",
+                persons:4,
+                price:10000
+            },
+
+            {
+                name:"SUV",
+                image:"images/suv.jpg",
+                persons:6,
+                price:14000
+            },
+
+            {
+                name:"Tempo Traveller",
+                image:"images/tempo-traveller.jpg",
+                persons:12,
+                price:22000
+            }
+
+        ]
+
+    },
+
+
+    "char-dham": {
+
+        title:"Char Dham Yatra",
+
+        image:"images/char-dham.jpg",
+
+        duration:"10 Days / 9 Nights",
+
+        route:"Delhi → Yamunotri → Gangotri → Kedarnath → Badrinath",
+
+        price:29999,
+
+        itinerary:[
+
+            ["Day 1","Delhi → Haridwar",
+             "Departure from Delhi and arrival in Haridwar."],
+
+            ["Day 2","Haridwar → Barkot",
+             "Journey towards Barkot."],
+
+            ["Day 3","Yamunotri Yatra",
+             "Yamunotri Darshan and return to Barkot."],
+
+            ["Day 4","Barkot → Uttarkashi",
+             "Transfer towards Uttarkashi."],
+
+            ["Day 5","Gangotri Yatra",
+             "Gangotri Temple Darshan."],
+
+            ["Day 6","Uttarkashi → Guptkashi",
+             "Journey towards Guptkashi."],
+
+            ["Day 7","Kedarnath",
+             "Kedarnath Yatra and Darshan."],
+
+            ["Day 8","Kedarnath → Guptkashi",
+             "Return journey."],
+
+            ["Day 9","Guptkashi → Badrinath",
+             "Proceed towards Badrinath."],
+
+            ["Day 10","Badrinath → Delhi",
+             "Darshan and return journey."]
+        ],
+
+        included:[
+            "Hotel accommodation",
+            "Breakfast & Dinner",
+            "Transportation",
+            "Driver charges",
+            "Toll & parking"
+        ],
+
+        excluded:[
+            "Helicopter tickets",
+            "Personal expenses",
+            "Puja expenses",
+            "Travel insurance"
+        ],
+
+        transport:[
+
+            {
+                name:"SUV",
+                image:"images/suv.jpg",
+                persons:6,
+                price:30000
+            },
+
+            {
+                name:"Tempo Traveller",
+                image:"images/tempo-traveller.jpg",
+                persons:12,
+                price:48000
+            },
+
+            {
+                name:"Mini Bus",
+                image:"images/mini-bus.jpg",
+                persons:20,
+                price:70000
+            }
+
+        ]
+
+    },
+
+
+    "valley-of-flowers": {
+
+        title:"Valley of Flowers + Hemkund Sahib",
+
+        image:"images/valley-of-flowers.jpg",
+
+        duration:"6 Days / 5 Nights",
+
+        route:"Delhi → Pipalkoti → Govindghat → Ghangaria → Valley of Flowers",
+
+        price:18499,
+
+        itinerary:[
+
+            ["Day 1","Delhi → Pipalkoti",
+             "Early morning pickup from Delhi. Journey through Rishikesh, Devprayag and Rudraprayag. Overnight stay at Pipalkoti."],
+
+            ["Day 2","Pipalkoti → Govindghat → Ghangaria",
+             "Transfer to Govindghat followed by trek towards Ghangaria."],
+
+            ["Day 3","Valley of Flowers",
+             "Full-day Valley of Flowers trek and exploration."],
+
+            ["Day 4","Hemkund Sahib",
+             "Trek to Hemkund Sahib and return to Ghangaria."],
+
+            ["Day 5","Ghangaria → Govindghat → Pipalkoti",
+             "Trek back to Govindghat and transfer to Pipalkoti."],
+
+            ["Day 6","Pipalkoti → Delhi",
+             "Return journey to Delhi."]
+        ],
+
+        included:[
+            "Hotel accommodation",
+            "Breakfast & Dinner",
+            "Delhi pickup & drop",
+            "Transportation",
+            "Driver allowance",
+            "Parking & toll taxes"
+        ],
+
+        excluded:[
+            "Personal expenses",
+            "Trek equipment",
+            "Pony/Palki charges",
+            "Travel insurance"
+        ],
+
+        transport:[
+
+            {
+                name:"Sedan",
+                image:"images/sedan.jpg",
+                persons:4,
+                price:14000
+            },
+
+            {
+                name:"SUV",
+                image:"images/suv.jpg",
+                persons:6,
+                price:18000
+            },
+
+            {
+                name:"Tempo Traveller",
+                image:"images/tempo-traveller.jpg",
+                persons:12,
+                price:28000
+            }
+
+        ]
+
+    }
+
+};
+
+
+/* =====================================================
+   GET TOUR FROM URL
+===================================================== */
+
+const params = new URLSearchParams(window.location.search);
+
+const tourName = params.get("tour") || "kedarnath";
+
+const tour = tours[tourName] || tours.kedarnath;
+
+
+/* =====================================================
+   BASIC TOUR DETAILS
+===================================================== */
+
+document.getElementById("tourTitle").textContent =
+    tour.title;
+
+document.getElementById("tourImage").src =
+    tour.image;
+
+document.getElementById("tourDuration").textContent =
+    "⏱ " + tour.duration;
+
+document.getElementById("tourRoute").textContent =
+    "📍 " + tour.route;
+
+document.getElementById("tourPrice").textContent =
+    tour.price.toLocaleString("en-IN");
+
+document.getElementById("summaryTourPrice").textContent =
+    tour.price.toLocaleString("en-IN");
+
+
+/* =====================================================
+   ITINERARY
+===================================================== */
+
+const itineraryBox =
+    document.getElementById("itinerary");
+
+tour.itinerary.forEach(day => {
+
+    itineraryBox.innerHTML += `
+
+        <div class="day">
+
+            <h3>${day[0]} — ${day[1]}</h3>
+
+            <p>${day[2]}</p>
+
+        </div>
+
+    `;
+
+});
+
+
+/* =====================================================
+   INCLUSIONS
+===================================================== */
+
+const includedBox =
+    document.getElementById("included");
+
+tour.included.forEach(item => {
+
+    includedBox.innerHTML +=
+        `<li>${item}</li>`;
+
+});
+
+
+/* =====================================================
+   EXCLUSIONS
+===================================================== */
+
+const excludedBox =
+    document.getElementById("excluded");
+
+tour.excluded.forEach(item => {
+
+    excludedBox.innerHTML +=
+        `<li>${item}</li>`;
+
+});
+
+
+/* =====================================================
+   TRANSPORTATION
+===================================================== */
+
+const transportGrid =
+    document.getElementById("transportGrid");
+
+let selectedTransport = null;
+let selectedDate = "05 Sep 2026";
+
+
+tour.transport.forEach((vehicle,index) => {
+
+    transportGrid.innerHTML += `
+
+        <div class="vehicle ${index === 0 ? "selected" : ""}"
+             onclick="selectVehicle(${index})"
+             id="vehicle-${index}">
+
+            <img src="${vehicle.image}"
+                 alt="${vehicle.name}">
+
+            <div class="vehicle-info">
+
+                <h3>${vehicle.name}</h3>
+
+                <div class="capacity">
+                    👥 ${vehicle.persons} Persons
+                </div>
+
+                <div class="vehicle-price">
+                    ₹${vehicle.price.toLocaleString("en-IN")}
+                </div>
+
+                <button class="select-btn">
+                    Select Vehicle
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+});
+
+
+/* Default vehicle */
+
+selectedTransport = tour.transport[0];
+
+updateSummary();
+
+
+/* =====================================================
+   VEHICLE SELECT
+===================================================== */
+
+function selectVehicle(index){
+
+    selectedTransport =
+        tour.transport[index];
+
+    document.querySelectorAll(".vehicle")
+        .forEach(vehicle =>
