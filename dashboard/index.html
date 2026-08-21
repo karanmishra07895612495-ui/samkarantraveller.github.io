@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SamKaranTraveller — Master Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#f4f7f9;
+    color:#17202a;
+}
+
+header{
+    background:#0A4D68;
+    color:white;
+    padding:18px 24px;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#35c27b;
+}
+
+.header-right{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.status{
+    background:#35c27b;
+    padding:7px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.layout{
+    display:flex;
+    min-height:calc(100vh - 70px);
+}
+
+.sidebar{
+    width:245px;
+    background:#083b50;
+    color:white;
+    padding:18px 10px;
+}
+
+.sidebar button{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:white;
+    padding:13px 14px;
+    margin-bottom:4px;
+    border-radius:8px;
+    text-align:left;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.sidebar button:hover,
+.sidebar button.active{
+    background:#0A4D68;
+}
+
+.main{
+    flex:1;
+    padding:25px;
+    overflow:auto;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+h1{
+    margin-bottom:6px;
+    font-size:28px;
+}
+
+.subtitle{
+    color:#6c757d;
+    margin-bottom:22px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-bottom:24px;
+}
+
+.card{
+    background:white;
+    border-radius:14px;
+    padding:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+.card small{
+    color:#777;
+}
+
+.number{
+    font-size:30px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.green{
+    color:#159957;
+}
+
+.orange{
+    color:#ed8b00;
+}
+
+.red{
+    color:#d63031;
+}
+
+.blue{
+    color:#0A4D68;
+}
+
+.panel{
+    background:white;
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+}
+
+.panel h2{
+    margin-bottom:15px;
+    font-size:19px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:13px 10px;
+    border-bottom:1px solid #eee;
+    text-align:left;
+    font-size:14px;
+}
+
+th{
+    color:#666;
+    background:#fafafa;
+}
+
+.badge{
+    display:inline-block;
+    padding:5px 9px;
+    border-radius:15px;
+    font-size:11px;
+    font-weight:bold;
+}
+
+.badge.green{
+    background:#e6f8ef;
+}
+
+.badge.orange{
+    background:#fff3dc;
+}
+
+.badge.red{
+    background:#ffe7e7;
+}
+
+.badge.blue{
+    background:#e5f3f9;
+}
+
+.btn{
+    border:0;
+    padding:9px 14px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn-primary{
+    background:#0A4D68;
+    color:white;
+}
+
+.btn-green{
+    background:#35c27b;
+    color:white;
+}
+
+.btn-orange{
+    background:#ff9800;
+    color:white;
+}
+
+.btn-danger{
+    background:#d63031;
+    color:white;
+}
+
+.btn-light{
+    background:#edf2f5;
+    color:#17202a;
+}
+
+.grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.pipeline{
+    display:flex;
+    gap:8px;
+    overflow:auto;
+}
+
+.stage{
+    min-width:130px;
+    background:#f5f7f9;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+}
+
+.stage strong{
+    display:block;
+    font-size:22px;
+    margin-bottom:4px;
+}
+
+.health{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+    margin-right:7px;
+}
+
+.dot.green{
+    background:#35c27b;
+}
+
+.dot.red{
+    background:#d63031;
+}
+
+.dot.orange{
+    background:#ff9800;
+}
+
+.search{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    margin-bottom:15px;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:8px;
+    display:inline-block;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#777;
+    font-size:13px;
+}
+
+@media(max-width:1000px){
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .grid-2{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:700px){
+
+    header{
+        padding:15px;
+    }
+
+    .sidebar{
+        width:65px;
+        padding:10px 5px;
+    }
+
+    .sidebar button{
+        font-size:0;
+        text-align:center;
+    }
+
+    .sidebar button::first-letter{
+        font-size:20px;
+    }
+
+    .main{
+        padding:15px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+    }
+
+    .card{
+        padding:15px;
+    }
+
+    .number{
+        font-size:24px;
+    }
+
+    table{
+        min-width:700px;
+    }
+
+    .panel{
+        overflow:auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    SamKaran<span>Traveller</span>
+</div>
+
+<div class="header-right">
+    <span class="status">● SYSTEM READY</span>
+</div>
+
+</header>
+
+<div class="layout">
+
+<aside class="sidebar">
+
+<button class="active" onclick="showPage('dashboard',this)">🏠 Dashboard</button>
+
+<button onclick="showPage('enquiries',this)">📋 Enquiries</button>
+
+<button onclick="showPage('customers',this)">👥 Customers</button>
+
+<button onclick="showPage('quotations',this)">💰 Quotations</button>
+
+<button onclick="showPage('bookings',this)">🎫 Bookings</button>
+
+<button onclick="showPage('payments',this)">💳 Payments</button>
+
+<button onclick="showPage('trips',this)">✈️ Trips</button>
+
+<button onclick="showPage('vendors',this)">🏨 Vendors</button>
+
+<button onclick="showPage('whatsapp',this)">📱 WhatsApp</button>
+
+<button onclick="showPage('automation',this)">🤖 AI / Automation</button>
+
+<button onclick="showPage('marketing',this)">📣 Marketing</button>
+
+<button onclick="showPage('settings',this)">⚙️ Settings</button>
+
+</aside>
+
+<main class="main">
+
+<!-- DASHBOARD -->
+
+<section id="dashboard" class="page active">
+
+<h1>Master Dashboard</h1>
+
+<p class="subtitle">
+SamKaranTraveller Business Control Center
+</p>
+
+<div class="cards">
+
+<div class="card">
+<small>New Enquiries</small>
+<div class="number blue">0</div>
+</div>
+
+<div class="card">
+<small>Quotations Pending</small>
+<div class="number orange">0</div>
+</div>
+
+<div class="card">
+<small>Payments Pending</small>
+<div class="number red">0</div>
+</div>
+
+<div class="card">
+<small>Upcoming Trips</small>
+<div class="number green">0</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>Enquiry Pipeline</h2>
+
+<div class="pipeline">
+
+<div class="stage">
+<strong>0</strong>
+NEW
+</div>
+
+<div class="stage">
+<strong>0</strong>
+PROCESSING
+</div>
+
+<div class="stage">
+<strong>0</strong>
+QUOTATION
+</div>
+
+<div class="stage">
+<strong>0</strong>
+APPROVAL
+</div>
+
+<div class="stage">
+<strong>0</strong>
+BOOKING
+</div>
+
+<div class="stage">
+<strong>0</strong>
+TRIP
+</div>
+
+</div>
+
+</div>
+
+<div class="grid-2">
+
+<div class="panel">
+
+<h2>Automation Health</h2>
+
+<div class="health">
+<span>CRM</span>
+<span><span class="dot green"></span>Healthy</span>
+</div>
+
+<div class="health">
+<span>AI Manager</span>
+<span><span class="dot green"></span>Ready</span>
+</div>
+
+<div class="health">
+<span>Itinerary Agent</span>
+<span><span class="dot green"></span>Ready</span>
+</div>
+
+<div class="health">
+<span>Pricing Agent</span>
+<span><span class="dot green"></span>Ready</span>
+</div>
+
+<div class="health">
+<span>WhatsApp</span>
+<span><span class="dot green"></span>Manual</span>
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>Quick Actions</h2>
+
+<button class="btn btn-primary"
+onclick="window.open('https://samkarantravellerai.app.n8n.cloud/form/samkaran-enquiry','_blank')">
+✈️ Open Enquiry Form
+</button>
+
+<a class="whatsapp"
+href="https://wa.me/917895612495"
+target="_blank">
+💬 Open WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ENQUIRIES -->
+
+<section id="enquiries" class="page">
+
+<h1>Customer Enquiries</h1>
+
+<p class="subtitle">
+Manage incoming travel enquiries.
+</p>
+
+<div class="panel">
+
+<input
+class="search"
+placeholder="Search customer, destination or enquiry ID..."
+onkeyup="searchTable(this,'enquiryTable')">
+
+<table id="enquiryTable">
+
+<thead>
+
+<tr>
+<th>Enquiry ID</th>
+<th>Customer</th>
+<th>Destination</th>
+<th>Travel Date</th>
+<th>Travellers</th>
+<th>Budget</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>—</td>
+<td>No live enquiries loaded</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><span class="badge blue">WAITING</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- CUSTOMERS -->
+
+<section id="customers" class="page">
+
+<h1>Customer CRM</h1>
+
+<p class="subtitle">
+Customer profiles and enquiry history.
+</p>
+
+<div class="panel">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Customer ID</th>
+<th>Name</th>
+<th>WhatsApp</th>
+<th>Enquiries</th>
+<th>Bookings</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>—</td>
+<td>No live CRM data loaded</td>
+<td>—</td>
+<td>0</td>
+<td>0</td>
+<td><span class="badge blue">WAITING</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- QUOTATIONS -->
+
+<section id="quotations" class="page">
+
+<h1>Quotations</h1>
+
+<p class="subtitle">
+Manage travel packages and customer quotations.
+</p>
+
+<div class="panel">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Quotation</th>
+<th>Customer</th>
+<th>Destination</th>
+<th>Package Total</th>
+<th>Budget</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>—</td>
+<td>No quotations</td>
+<td>—</td>
+<td>₹0</td>
+<td>₹0</td>
+<td><span class="badge blue">WAITING</span></td>
+<td>—</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- BOOKINGS -->
+
+<section id="bookings" class="page">
+
+<h1>Bookings</h1>
+
+<p class="subtitle">
+Customer-approved bookings.
+</p>
+
+<div class="panel">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Booking ID</th>
+<th>Customer</th>
+<th>Destination</th>
+<th>Travel Date</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>—</td>
+<td>No bookings</td>
+<td>—</td>
+<td>—</td>
+<td><span class="badge blue">WAITING</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- PAYMENTS -->
+
+<section id="payments" class="page">
+
+<h1>Payments</h1>
+
+<p class="subtitle">
+Track customer payments and outstanding balances.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<small>Total Revenue</small>
+<div class="number green">₹0</div>
+</div>
+
+<div class="card">
+<small>Paid</small>
+<div class="number green">₹0</div>
+</div>
+
+<div class="card">
+<small>Outstanding</small>
+<div class="number red">₹0</div>
+</div>
+
+<div class="card">
+<small>Pending Payments</small>
+<div class="number orange">0</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<p>
+All payment actions remain behind human approval.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- TRIPS -->
+
+<section id="trips" class="page">
+
+<h1>Trips & Operations</h1>
+
+<p class="subtitle">
+Upcoming and active customer trips.
+</p>
+
+<div class="panel">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Customer</th>
+<th>Destination</th>
+<th>Travel Date</th>
+<th>Hotel</th>
+<th>Transport</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td><span class="badge blue">NO UPCOMING TRIPS</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- VENDORS -->
+
+<section id="vendors" class="page">
+
+<h1>Hotels & Vendors</h1>
+
+<p class="subtitle">
+Vendor coordination and confirmation status.
+</p>
+
+<div class="panel">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Vendor</th>
+<th>Service</th>
+<th>Date</th>
+<th>Cost</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>₹0</td>
+<td><span class="badge blue">WAITING</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- WHATSAPP -->
+
+<section id="whatsapp" class="page">
+
+<h1>WhatsApp Center</h1>
+
+<p class="subtitle">
+Normal WhatsApp — manual copy/paste mode.
+</p>
+
+<div class="panel">
+
+<h2>WHATSAPP_READY_MESSAGE</h2>
+
+<textarea
+id="message"
+style="width:100%;height:180px;padding:15px;border:1px solid #ddd;border-radius:8px;"
+placeholder="Your AI-generated WhatsApp message will appear here..."></textarea>
+
+<br><br>
+
+<button class="btn btn-green" onclick="copyMessage()">
+📋 Copy Message
+</button>
+
+<a
+class="whatsapp"
+href="https://wa.me/917895612495"
+target="_blank">
+Open WhatsApp
+</a>
+
+<p style="margin-top:15px;color:#777;">
+Mode: MANUAL_COPY_PASTE | Actual message sent: false
+</p>
+
+</div>
+
+</section>
+
+
+<!-- AUTOMATION -->
+
+<section id="automation" class="page">
+
+<h1>AI & Automation</h1>
+
+<p class="subtitle">
+Monitor existing SamKaranTraveller automation.
+</p>
+
+<div class="panel">
+
+<div class="health">
+<span>Customer Enquiry Entry Point</span>
+<span><span class="dot green"></span>Active</span>
+</div>
+
+<div class="health">
+<span>Persist Enquiry to CRM</span>
+<span><span class="dot green"></span>Active</span>
+</div>
+
+<div class="health">
+<span>AI Manager</span>
+<span><span class="dot green"></span>Configured</span>
+</div>
+
+<div class="health">
+<span>Itinerary Agent</span>
+<span><span class="dot green"></span>Configured</span>
+</div>
+
+<div class="health">
+<span>Pricing Agent</span>
+<span><span class="dot green"></span>Configured</span>
+</div>
+
+<div class="health">
+<span>Booking</span>
+<span><span class="dot orange"></span>Approval Required</span>
+</div>
+
+<div class="health">
+<span>Payment</span>
+<span><span class="dot orange"></span>Approval Required</span>
+</div>
+
+<div class="health">
+<span>WhatsApp</span>
+<span><span class="dot green"></span>Manual Copy/Paste</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MARKETING -->
+
+<section id="marketing" class="page">
+
+<h1>Marketing</h1>
+
+<p class="subtitle">
+Manage content and customer acquisition.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<small>Campaigns</small>
+<div class="number blue">0</div>
+</div>
+
+<div class="card">
+<small>Leads</small>
+<div class="number green">0</div>
+</div>
+
+<div class="card">
+<small>Content Drafts</small>
+<div class="number orange">0</div>
+</div>
+
+<div class="card">
+<small>Ads</small>
+<div class="number red">Approval</div>
+</div>
+
+</div>
+
+<div class="panel">
+
+<p>
+Ad spending and campaign launch remain human-approval gated.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section id="settings" class="page">
+
+<h1>Settings</h1>
+
+<p class="subtitle">
+SamKaranTraveller business settings.
+</p>
+
+<div class="panel">
+
+<h2>Business</h2>
+
+<p><strong>Brand:</strong> SamKaranTraveller</p>
+
+<p style="margin-top:8px;">
+<strong>Website:</strong>
+https://karanmishra07895612495-ui.github.io/samkarantraveller.github.io/
+</p>
+
+<p style="margin-top:8px;">
+<strong>Enquiry Form:</strong>
+https://samkarantravellerai.app.n8n.cloud/form/samkaran-enquiry
+</p>
+
+<p style="margin-top:8px;">
+<strong>WhatsApp:</strong> +91 78956 12495
+</p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<footer>
+
+© 2026 SamKaranTraveller — Master Control Dashboard
+
+</footer>
+
+
+<script>
+
+function showPage(id,button){
+
+document.querySelectorAll('.page')
+.forEach(page=>{
+page.classList.remove('active');
+});
+
+document.getElementById(id)
+.classList.add('active');
+
+document.querySelectorAll('.sidebar button')
+.forEach(btn=>{
+btn.classList.remove('active');
+});
+
+button.classList.add('active');
+
+window.scrollTo(0,0);
+
+}
+
+
+function copyMessage(){
+
+const box=document.getElementById("message");
+
+if(!box.value){
+
+alert("WhatsApp message अभी उपलब्ध नहीं है।");
+
+return;
+
+}
+
+navigator.clipboard.writeText(box.value);
+
+alert("WhatsApp message copied.");
+
+}
+
+
+function searchTable(input,tableId){
+
+const filter=input.value.toLowerCase();
+
+const rows=document
+.getElementById(tableId)
+.getElementsByTagName("tr");
+
+for(let i=1;i<rows.length;i++){
+
+rows[i].style.display=
+rows[i].innerText.toLowerCase().includes(filter)
+? ""
+: "none";
+
+}
+
+}
+
+</script>
+
+</body>
+  </html>
