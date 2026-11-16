@@ -1070,6 +1070,83 @@ https://samkarantravellerai.app.n8n.cloud/form/samkaran-enquiry
 
 <script>
 
+const PACKAGES_API =
+"https://samkarantraveller-management-system.vercel.app/api/public-packages";
+
+async function loadPackages(){
+
+    const statusBox = document.getElementById("packageStatus");
+    const grid = document.getElementById("packageGrid");
+
+    statusBox.textContent = "Loading published packages...";
+    grid.replaceChildren();
+
+    try {
+        const response = await fetch(PACKAGES_API);
+
+        if(!response.ok){
+            throw new Error("API request failed: " + response.status);
+        }
+
+        const result = await response.json();
+        const packages = Array.isArray(result.packages)
+            ? result.packages
+            : [];
+
+        if(packages.length === 0){
+            statusBox.textContent = "Abhi koi published package available nahi hai.";
+            return;
+        }
+
+        statusBox.textContent =
+            packages.length + " published package(s) available.";
+
+        packages.forEach(pkg => {
+            const card = document.createElement("article");
+            card.className = "package-card";
+
+            const content = document.createElement("div");
+            content.className = "package-content";
+
+            const title = document.createElement("h3");
+            title.textContent = pkg.title || "Travel Package";
+            content.appendChild(title);
+
+            const destination = document.createElement("p");
+            destination.textContent = "📍 " + (pkg.destination || "Destination");
+            content.appendChild(destination);
+
+            const duration = document.createElement("p");
+            duration.textContent =
+                "🗓️ " + pkg.duration_days + " Days / " +
+                pkg.duration_nights + " Nights";
+            content.appendChild(duration);
+
+            const price = document.createElement("div");
+            price.className = "package-price";
+            price.textContent =
+                "₹" + Number(pkg.price || 0).toLocaleString("en-IN");
+            content.appendChild(price);
+
+            const enquiry = document.createElement("a");
+            enquiry.className = "whatsapp";
+            enquiry.href =
+                "https://samkarantravellerai.app.n8n.cloud/form/samkaran-enquiry";
+            enquiry.target = "_blank";
+            enquiry.rel = "noopener noreferrer";
+            enquiry.textContent = "Enquire Now";
+            content.appendChild(enquiry);
+
+            card.appendChild(content);
+            grid.appendChild(card);
+        });
+
+    } catch(error) {
+        console.error("Package loading error:", error);
+        statusBox.textContent =
+            "Packages load nahi ho paaye. Please refresh and try again.";
+    }
+}
 function showPage(id,button){
 
 document.querySelectorAll('.page')
